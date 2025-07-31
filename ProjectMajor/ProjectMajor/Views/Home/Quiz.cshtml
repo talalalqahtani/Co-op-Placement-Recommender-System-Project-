@@ -1,0 +1,102 @@
+﻿@model IEnumerable<ProjectMajor.Models.Question>
+
+@{
+    ViewData["Title"] = "Test Page";
+    int x = 0;
+}
+
+<style>
+    .card {
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-body {
+        font-size: 18px;
+    }
+
+    .card-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .btn-primary {
+        font-size: 18px;
+    }
+
+    .question {
+        margin-bottom: 20px;
+    }
+
+    .question-label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .question-option {
+        margin-bottom: 10px;
+    }
+</style>
+
+<form asp-action="Report">
+    <input value="@ViewBag.Majorid" id="mid" name="mid" hidden/>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card ">
+                <div class="card-body">
+                    <div class="text-center card-header">
+                        <i class="far fa-file-alt fa-4x mb-3 text-primary"></i>
+                        <p class="card-title"><strong>Your feedback matters</strong></p>
+                        <p><strong>Complete this questionnire to get the result.</strong></p>
+
+                        <div class="row text-center">
+                            @foreach (var item in Model)
+                            {
+                              <label class="question-label">@item.Major</label>
+                            }
+                        </div>
+
+                    </div>
+                    <form class="px-4" asp-action="Report">
+                        @foreach (var item in Model)
+                        {
+                                string ss ="op"+ x.ToString();
+                                x = x + 1;
+                                <div class="question">
+                                <label class="question-label">@item.Descrption</label>
+                                <div class="form-check">
+                                    <input class="form-check-input"  type="radio" name="@ss" id="opt1" value="1">
+                                    <label class="form-check-label" for="Option1">
+                                        Agree
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="@ss" id="opt2" value="0.5">
+                                    <label class="form-check-label" for="Option2">
+                                        Midcore
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="@ss" id="opt3" value="0">
+                                    <label class="form-check-label" for="Option3">
+                                        Disagree
+                                    </label>
+                                </div>
+                            </div>
+                            <hr />
+                        }
+                            <div class="card-footer text-center">
+                                <div class="form-group">
+                                    <button type="submit" asp-action="Form" class="btn btn-primary mr-3">Back</button>
+                                    <button type="submit" asp-action="Report" class="btn btn-primary mr-3">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>

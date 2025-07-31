@@ -1,0 +1,79 @@
+﻿@{
+    Layout = null;
+}
+@model ProjectMajor.Models.Student
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Untree.co">
+    <link rel="shortcut icon" href="favicon.png">
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="bootstrap, bootstrap5" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="~/acsses/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/acsses/fonts/flaticon/font/flaticon.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="~/acsses/css/tiny-slider.css">
+    <link rel="stylesheet" href="~/acsses/css/aos.css">
+    <link rel="stylesheet" href="~/acsses/css/glightbox.min.css">
+    <link rel="stylesheet" href="~/acsses/css/style.css">
+
+    <link rel="stylesheet" href="css/flatpickr.min.css">
+
+
+    <title>Choose Major</title>
+</head>
+<body>
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                         class="img-fluid" alt="Sample image">
+                </div>
+                <h3 class="text-success">@ViewBag.succ</h3>
+                <h3 class="text-danger">@ViewBag.wrong</h3>
+                <h3 class="text-danger">@ViewBag.fail</h3>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <form asp-action="ChangePass">
+
+
+                        <!-- Password input -->
+
+                        <div class="form-outline mb-3">
+                            <label asp-for="Password" class="form-label" for="form3Example4">Enter a new password:</label>
+                            <input asp-for="Password" name="pass1" type="password" id="form3Example4" class="form-control form-control-lg"
+                                   placeholder="Enter password" />
+                        </div>
+                        <div class="form-outline mb-3">
+                            <label asp-for="Password" class="form-label" for="form3Example4">Confirm password:</label>
+                            <input asp-for="Password" name="pass2" type="password" id="form3Example4" class="form-control form-control-lg"
+                                   placeholder="Enter password agin" />
+                        </div>
+
+                        <div class="mt-4 pt-2 text-center">
+                            <button type="submit" class="btn btn-primary btn-lg"
+                                    style="width: 30%;">
+                                SAVE
+                            </button>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>

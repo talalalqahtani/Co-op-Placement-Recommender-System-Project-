@@ -1,0 +1,152 @@
+﻿@{
+    ViewData["Title"] = "About Page";
+}
+
+<div class="bg-white">
+    <div class="container py-5 mb-5">
+        <div class="row h-100 align-items-center py-5">
+            <div class="col-lg-6">
+                <h1 class="display-4"><i class="fa-solid fa-circle-info fa-1x mb-1 text-primary"></i> About us</h1>
+                <p class="lead text-muted mb-7">Welcome to our specialized website designed to assist students in choosing their majors. We provide personalized recommendations based on your answers to a series of questions.
+            </div>
+            <div class="col-lg-6 d-none d-lg-block"><img src="https://bootstrapious.com/i/snippets/sn-about/illus.png" alt="" class="img-fluid"></div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-white py-5">
+    <div class="container py-5">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 order-2 order-lg-1">
+                <h2 class="font-weight-light">Our team of experts has carefully curated a database of majors and career paths to help you make informed decisions about your academic journey.</h2>
+            </div>
+            <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="https://bootstrapious.com/i/snippets/sn-about/img-1.jpg" alt="" class="img-fluid mb-4 mb-lg-0"></div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-lg-5 px-5 mx-auto"><img src="https://bootstrapious.com/i/snippets/sn-about/img-2.jpg" alt="" class="img-fluid mb-4 mb-lg-0"></div>
+            <div class="col-lg-6">
+                <h2 class="font-weight-light">Feel free to explore our website and discover the possibilities that await you!</h2>
+                @*<p class="font-italic text-muted mb-4"></p><a href="#" class="btn btn-light px-5 rounded-pill shadow-sm">Learn More</a>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-white py-5">
+    <div class="container py-5">
+        <div class="row mb-4">
+            <div class="col-lg-10">
+                <h2 class="display-4 font-weight-light"><i class="fa-solid fa-circle-user fa-1x mb-1 text-primary"></i> Who we are</h2>
+                <p class="lead text-muted mb-7">We are an active team of students currently working at the Deanship of Information Technology.</p>
+                <p class="lead text-muted mb-7">Our primary focus is developing highly valuable web services for both the university community and those commencing on their academic journey.</p>
+            </div>
+        </div>
+    </div>
+    <style>
+        .rounded-button {
+            border-radius: 20px;
+            padding: 8px 16px;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+            .rounded-button:hover {
+                background-color: #0069d9;
+            }
+    </style>
+
+    <div class="row text-center">
+        <!-- Team item 1-->
+        <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="bg-light rounded shadow-sm py-5 px-4">
+                <img src="https://bootstrapious.com/i/snippets/sn-about/avatar-1.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0">AHMED ALBUESSA</h5>
+                <span class="small text-uppercase text-muted">Student - Information Systems</span>
+                <button class="rounded-button btn-primary mt-3 mb-3" onclick="showTeammateInfo('teammate-info-1')">Show more</button>
+                <div id="teammate-info-1" style="display: none;">
+                    <p>Student - Information Systems</p>
+                    <p>Study Level - Senior</p>
+                    <p>Email: 219022827@student.kfu.edu.sa</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- End -->
+        <!-- Team item 2-->
+        <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="bg-light rounded shadow-sm py-5 px-4">
+                <img src="https://bootstrapious.com/i/snippets/sn-about/avatar-2.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0">Haider Alkhalaf</h5>
+                <span class="small text-uppercase text-muted">Student - Information Systems</span>
+                <button class="rounded-button btn-primary mt-3 mb-3" onclick="showTeammateInfo('teammate-info-2')">Show more</button>
+                <div id="teammate-info-2" style="display: none;">
+                    <p>Student - Information Systems</p>
+                    <p>Study Level - Senior</p>
+                    <p>Email: 219033468@student.kfu.edu.sa</p>
+                </div>
+            </div>
+        </div>
+        <!-- End -->
+        <!-- Team item 3-->
+        <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="bg-light rounded shadow-sm py-5 px-4">
+                <img src="https://bootstrapious.com/i/snippets/sn-about/avatar-3.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0">Abdulaziz Alsafwan</h5>
+                <span class="small text-uppercase text-muted">Student - Information Systems</span>
+                <button class="rounded-button btn-primary mt-3 mb-3" onclick="showTeammateInfo('teammate-info-3')">Show more</button>
+                <div id="teammate-info-3" style="display: none;">
+                    <p>Student - Information Systems</p>
+                    <p>Study Level - Senior</p>
+                    <p>Email: 219029247@student.kfu.edu.sa</p>
+                </div>
+            </div>
+        </div>
+        <!-- End -->
+        <!-- Team item 4-->
+        <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="bg-light rounded shadow-sm py-5 px-4">
+                <img src="https://bootstrapious.com/i/snippets/sn-about/avatar-2.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0">Mohammed Hadi</h5>
+                <span class="small text-uppercase text-muted">Student - Computer Science</span>
+                <button class="rounded-button btn-primary mt-3 mb-3" onclick="showTeammateInfo('teammate-info-4')">Show more</button>
+                <div id="teammate-info-4" style="display: none;">
+                    <p>Student - Computer Science</p>
+                    <p>Study Level - Senior</p>
+                    <p>Email: 218028873@student.kfu.edu.sa</p>
+                </div>
+            </div>
+        </div>
+        <!-- End -->
+        <!-- Team item 5-->
+        <div class="row justify-content-center">
+        <div class="col-xl-3 col-sm-6 mb-5">
+                <div class="bg-light rounded shadow-sm py-5 px-4">
+                <img src="https://bootstrapious.com/i/snippets/sn-about/avatar-1.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <h5 class="mb-0">Mohammed Eid</h5>
+                <span class="small text-uppercase text-muted">Student - Computer Science</span>
+                <button class="rounded-button btn-primary mt-3 mb-3" onclick="showTeammateInfo('teammate-info-5')">Show more</button>
+                <div id="teammate-info-5" style="display: none;">
+                    <p>Student - Computer Science</p>
+                    <p>Study Level - Senior</p>
+                    <p>Email: 218038022@student.kfu.edu.sa</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- End -->
+
+        <script>
+            function showTeammateInfo(teammateInfoId, button) {
+                var teammateInfo = document.getElementById(teammateInfoId);
+                if (teammateInfo.style.display === "none") {
+                    teammateInfo.style.display = "block";
+                    button.textContent = "Show less";
+                } else {
+                    teammateInfo.style.display = "none";
+                    button.textContent = "Show more";
+                }
+            }
+        </script>
+
+       

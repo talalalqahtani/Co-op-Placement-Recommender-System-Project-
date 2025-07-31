@@ -1,0 +1,171 @@
+﻿<!-- /*
+* Template Name: Blogy
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+@using System.Security.Claims
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Untree.co">
+	<meta name="description" content="" />
+	<meta name="keywords" content="bootstrap, bootstrap5" />
+
+    <link rel="shortcut icon" href="favicon.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="~/acsses/fonts/icomoon/style.css">
+	<link rel="stylesheet" href="~/acsses/fonts/flaticon/font/flaticon.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="~/acsses/css/tiny-slider.css">
+	<link rel="stylesheet" href="~/acsses/css/aos.css">
+	<link rel="stylesheet" href="~/acsses/css/glightbox.min.css">
+	<link rel="stylesheet" href="~/acsses/css/style.css">
+	<link rel="stylesheet" href="css/flatpickr.min.css">
+
+    <script src="https://kit.fontawesome.com/a78b0bf0a6.js" crossorigin="anonymous"></script>
+
+	<title>Choose Major</title>
+</head>
+
+<body>
+	<div class="site-mobile-menu site-navbar-target">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close">
+				<span class="icofont-close js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div>
+
+	<nav class="site-nav">
+		<div class="container">
+			<div class="menu-bg-wrap">
+				<div class="site-navigation">
+					<div class="row g-0 align-items-center">
+						<div class="col-2">
+							<a href="@Url.Action("Index","Home")" class="logo m-0 float-start">ChooseMajor<span class="text-primary">.</span></a>
+						</div>
+						<div class="col-8 text-center">
+							<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
+								<li class="active"><a href="@Url.Action("Index","Home")">HOME</a></li>
+								<li class="has-children">
+									<a href="#">CONTENT</a>
+									<ul class="dropdown">
+										@if (User.Identity.IsAuthenticated && User.FindFirst(ClaimTypes.Role).Value == "Student")
+										{
+											<li><a href="@Url.Action("Form","Home")"><i class="fas fa-edit"></i>Take the quiz</a></li>
+											<li><a href="@Url.Action("Report","Home")"><i class="fas fa-clipboard-check"></i> Show result</a></li>
+											<li><a href="@Url.Action("Contact","Home")"><i class="fa-solid fa-comments"></i> Contact us</a></li>
+											<li><a href="@Url.Action("About","Home")"><i class="fa-solid fa-circle-info"></i>  About us</a></li>
+										}
+										@if (User.Identity.IsAuthenticated && User.FindFirst(ClaimTypes.Role).Value == "Admin")
+										{
+											<li><a href="@Url.Action("Admin1","Home")"><i class="fas fa-cogs"></i> Admin page</a></li>
+										}
+									</ul>
+								</li>
+							</ul>
+						</div>
+
+						<div class="col-2 text-end">
+							<a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
+								<span>Hi</span>
+							</a>
+							@if (User.Identity.IsAuthenticated)
+							{
+								<a href="@Url.Action("LogOut", "Home")" class="logout-button ms-auto float-end d-none d-lg-inline-block btn-secondary"><i class="fas fa-sign-in-alt"></i> LOGOUT</a>
+
+							}
+							else
+							{
+								<a href="@Url.Action("LogIn", "Home")" class="logout-button ms-4 float-end d-none d-lg-inline-block btn-secondary"><i class="fas fa-sign-in-alt"></i> LOGIN</a>
+
+							}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	
+	<style>
+		.logout-button {
+			display: inline-block;
+			padding: 10px 20px;
+			/*background-color: #f44336;*/
+			color: #fff;
+			border-radius: 5px;
+			text-decoration: none;
+			transition: background-color 0.3s ease;
+		}
+		.logout-button:hover {
+				background-color: #d32f2f;
+		}
+	</style>
+
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+	<footer class="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="widget">
+						<h3 class="mb-4">Overview</h3>
+						<p>We are guiding students in choosing their majors through interactive questions and personalized recommendations.</p>
+					</div><!-- /.widget -->
+				</div><!-- /.col-lg-4 -->
+				<div class="col-lg-4">
+					<div class="widget text-center">
+						<h3 class="mb-4">Social</h3>
+						<ul class="list-inline social-icons">
+							<li class="list-inline-item"><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
+						</ul>
+					</div><!-- /.widget -->
+				</div><!-- /.col-lg-4 -->
+				<div class="col-lg-4 ps-lg-5">
+					<div class="widget">
+						<h3 class="mb-4">Quick links</h3>
+						<ul class="list-unstyled links">
+							<li><a href="Home/About">> Who we are</a></li>
+							<li><a href="Home/Contact">> Get contacted</a></li>
+							<li><a href="Home/About">> How to use</a></li>
+						</ul>
+					</div><!-- /.widget -->
+				</div><!-- /.col-lg-4 -->
+			</div><!-- /.row -->
+
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="widget">
+						<p class="text-muted">&copy; 2023 ChooseMajor. All rights reserved.</p>
+					</div><!-- /.widget -->
+				</div><!-- /.col-lg-12 -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</footer><!-- /.site-footer -->
+
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/tiny-slider.js"></script>
+	<script src="js/flatpickr.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/glightbox.min.js"></script>
+	<script src="js/navbar.js"></script>
+	<script src="js/counter.js"></script>
+	<script src="js/custom.js"></script>
+	@RenderSection("Scripts", required: false)
+
+</body>
+</html>
+

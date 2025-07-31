@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ProjectMajor.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<script src="https://kit.fontawesome.com/ca049ed155.js" crossorigin="anonymous"></script>
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create"><i class="fa-solid fa-plus fa-2x" style="color: #18b950;"></i></a>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.College)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.College.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square fa-2x"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info fa-2x" style="color: #2aa9b2;"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-solid fa-trash fa-2x" style="color: #ff0000;"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ProjectMajor.Models.College>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<script src="https://kit.fontawesome.com/ca049ed155.js" crossorigin="anonymous"></script>
+
+<style>
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        font-size: small;
+    }
+
+        .btn-primary:hover {
+            background-color: green;
+        }
+
+    .table {
+        border: 1px solid #ddd;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .icon-margin {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+</style>
+<h1 class="center">Colleges Management</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary"><i class="fa-solid fa-circle-plus fa-2x icon-margin" style="color: #18b950;"></i> Create new</a>
+</p>
+<table class="table table-striped center">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td class="center">
+                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square fa-2x icon-margin"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info fa-2x icon-margin" style="color: #2aa9b2;"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-solid fa-trash fa-2x icon-margin danger" style="color: red;"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

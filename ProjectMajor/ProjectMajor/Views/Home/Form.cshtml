@@ -1,0 +1,237 @@
+﻿@model IEnumerable<ProjectMajor.Models.Major>
+
+@{
+    ViewData["Title"] = "Form Page";
+}
+
+<style>
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        border: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+    }
+
+    .card-title {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .card-text {
+        font-size: 22px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    ul {
+        margin-bottom: 15px;
+    }
+
+    .card-text:last-child {
+        margin-bottom: 0;
+    }
+
+    .center {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 20px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        margin: 5px;
+    }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
+        }
+
+    .form-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .form-group label {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .form-control {
+        font-size: 20px;
+        padding: 10px;
+    }
+</style>
+
+<div class="container">
+    <div class="center">
+        <h2>Choose the college and major to start the Questionnaire</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="form-center">
+                    <form asp-action="Quiz">
+                        <div class="form-group">
+                            <label for="college">Select your college:</label>
+                            <select class="form-control" id="college" name="CollegeId" asp-items="ViewBag.CollegeId"></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="major">Select a major:</label>
+                            <select class="form-control" id="major" name="MajorId" asp-items="ViewBag.MajorId"></select>
+                        </div>
+                        <div class="form-group center">
+                            <button type="submit" asp-action="Index" class="btn btn-primary mr-3">Back</button>
+                            <button type="submit" asp-action="Quiz" class="btn btn-primary mr-3">Start</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#college").change(function () {
+        alert("The text has been changed.");
+    });
+    $("#major").change(function () {
+        alert("The text has been changed.");
+        display();
+    });
+</script>
+
+
+<style>
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-bottom: 30px;
+    }
+
+    .card {
+        border: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .card-text {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    ul {
+        margin-bottom: 15px;
+    }
+
+    .card-text:last-child {
+        margin-bottom: 0;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .center {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        margin: 5px;
+    }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
+        }
+</style>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Suggested Major: Computer Science</h5>
+            <p class="card-text">Based on the student's answers, we recommend pursuing a major in Computer Science. Here are some details about the program:</p>
+            <div class="center">
+                <button id="showDetailsBtn" class="btn btn-primary" onclick="toggleDetails()">Show Details</button>
+            </div>
+            <div id="detailsSection" class="hidden">
+                <ul>
+                    <li>Curriculum: A comprehensive program covering programming languages, algorithms, data structures, and software development.</li>
+                    <li>Career Prospects: Exciting opportunities in software engineering, data analysis, artificial intelligence, and more.</li>
+                    <li>Recommended Courses: Introduction to Programming, Data Structures, Algorithms, Database Management, Software Engineering.</li>
+                </ul>
+                <p class="card-text">The suggested major is determined based on the student's responses to our specialized questionnaire, and the match possibility indicates the likelihood of the major aligning with the student's interests and skills.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="center">
+        <div>
+            <button class="btn btn-primary">Back to hone</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleDetails() {
+        var detailsSection = document.getElementById("detailsSection");
+        var showDetailsBtn = document.getElementById("showDetailsBtn");
+
+        if (detailsSection.classList.contains("hidden")) {
+            detailsSection.classList.remove("hidden");
+            showDetailsBtn.innerText = "Hide Details";
+        } else {
+            detailsSection.classList.add("hidden");
+            showDetailsBtn.innerText = "Show Details";
+        }
+    }
+</script>
